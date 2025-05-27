@@ -10,86 +10,121 @@
     <style>
         body {
             font-family: 'Segoe UI', sans-serif;
-            background-color: #f3f4f6;
+            background: linear-gradient(to right, #e3f2fd, #fce4ec);
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 60px auto;
+            padding: 35px 40px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
+
         h2 {
             text-align: center;
             color: #1a237e;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
+
         label {
-            font-weight: bold;
+            font-weight: 600;
             display: block;
             margin-top: 20px;
-            color: #333;
+            color: #2c3e50;
         }
-        input {
+
+        input[type="text"],
+        input[type="date"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px 15px;
             margin-top: 5px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease-in-out;
         }
+
+        input:focus {
+            outline: none;
+            border-color: #1a237e;
+            box-shadow: 0 0 5px rgba(26, 35, 126, 0.3);
+        }
+
         .btn {
-            margin-top: 25px;
+            margin-top: 30px;
             width: 100%;
-            padding: 12px;
-            background-color: #1a237e;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 14px;
+            background: linear-gradient(to right, #1a237e, #3949ab);
+            color: #fff;
             font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .btn:hover {
-            background-color: #0d1759;
+            background: linear-gradient(to right, #0d1759, #303f9f);
         }
+
         .error {
-            color: red;
+            color: #e53935;
             font-size: 14px;
+            margin-top: 5px;
+            display: block;
         }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            font-weight: bold;
+            color: #1a237e;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
         .toast {
             visibility: hidden;
-            min-width: 250px;
-            background-color: #4caf50;
+            min-width: 260px;
+            background-color: #43a047;
             color: white;
             text-align: center;
             border-radius: 6px;
-            padding: 16px;
+            padding: 14px;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 50%;
             top: 20px;
             transform: translateX(-50%);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
             font-size: 16px;
         }
+
         .toast.show {
             visibility: visible;
             animation: fadein 0.5s, fadeout 0.5s 3s;
         }
+
         @keyframes fadein {
-            from {top: 0; opacity: 0;}
-            to {top: 20px; opacity: 1;}
+            from { top: 0; opacity: 0; }
+            to { top: 20px; opacity: 1; }
         }
+
         @keyframes fadeout {
-            from {top: 20px; opacity: 1;}
-            to {top: 0; opacity: 0;}
-        }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            font-weight: bold;
+            from { top: 20px; opacity: 1; }
+            to { top: 0; opacity: 0; }
         }
     </style>
 </head>
@@ -131,14 +166,13 @@
 <script type="module">
     const toast = document.getElementById("toast");
 
-    const showToast = (message, color = '#4caf50') => {
+    const showToast = (message, color = '#43a047') => {
         toast.textContent = message;
         toast.style.backgroundColor = color;
         toast.classList.add("show");
         setTimeout(() => toast.classList.remove("show"), 4000);
     };
 
-    <%-- Toast using JSTL flags --%>
     <c:if test="${not empty msg}">
         showToast('${msg}');
     </c:if>

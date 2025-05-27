@@ -299,7 +299,7 @@
       <div class="section-title">💰 Compensation Management</div>
       <a href="compensation/add" class="btn">➕ Add Compensation</a>
       <a href="compensation/history" class="btn">📆 View History</a>
-      <a href="compensation/breakdown" class="btn">📊 Monthly Breakdown</a>
+      <a href="compensation/monthly-entry" class="btn">📊 Monthly Breakdown</a>
       <a href="compensation/edit" class="btn">✏️ Edit Compensation</a>
     </div>
   </main>

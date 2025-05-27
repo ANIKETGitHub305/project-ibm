@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 encoding//src/main/webapp/WEB-INF/views/add_compensation.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/comp_breakdown.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/comp_breakdown_entry.jsp=UTF-8
